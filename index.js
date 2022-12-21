@@ -22,12 +22,12 @@ app.use(express.json())
 app.use("/images", express.static(path.join(__dirname, "/images")))
 
 //---- step : 1.3
+const MONGO_URL = "mongodb+srv://blogadmin:admin1234@cluster0.vztbzci.mongodb.net/?retryWrites=true&w=majority";
 mongoose
-  .connect(process.env.MONGO_URL = mongodb+srv://blogadmin:admin1234@cluster0.vztbzci.mongodb.net/?retryWrites=true&w=majority, {
+  .connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    // useCreateIndex: true,
-    // useFindAndModify: true,
+  
   })
   .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err))
